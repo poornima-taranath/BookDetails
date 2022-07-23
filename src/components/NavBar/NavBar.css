@@ -1,0 +1,11 @@
+.navbar-container{
+    font-size: 0.8em;
+}
+
+.menu-option-box{
+    display: flex;
+}
+
+.option-name{
+    align-self: center;
+}
