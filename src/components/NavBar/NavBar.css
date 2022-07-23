@@ -6,6 +6,9 @@
     top:0;
     position: sticky;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease;
 
 }
 
@@ -33,4 +36,26 @@
     color: grey;
     margin-top: 1em;
     margin-left: 0.5em;
+}
+.collapsed-navbar{
+    width: 5%;
+    font-size: 0.8em;
+    height: 100vh;
+    border-right: 1px solid green;
+    top:0;
+    position: sticky;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease;
+}
+
+.collapse-icon{
+    align-self: center;
+    color: grey;
+    margin-top: calc(100vh - 200px);
+}
+
+.collapse-icon:hover,:focus{
+    color: rgb(206, 157, 12)
 }

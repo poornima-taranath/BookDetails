@@ -9,9 +9,9 @@ function Card(){
     const [bookDetails,setBookDetails] = useState([])
 
   
-    useEffect(()=>{
+    useEffect(()=>
        fetchBookDetails() 
-    },[])
+    ,[])
 
     let fetchBookDetails = () => {
        try{
@@ -52,7 +52,6 @@ function Card(){
 
      let handleBookSearch = (e) =>{
        
-        console.log(bookDetails)
         let res;
         console.log(e.target.value == '', e.target.key)
         if(e.target.value !== '' ){
@@ -78,8 +77,8 @@ function Card(){
         <div>
             <div className="input-row-first">
                 <div>
-                     <input className="input-box-value" type="text" onChange={debouncedSearch} placeholder="Search"/>
-                     <FaSearch/>
+                     <input className="input-box-value" type="text" onChange={debouncedSearch} placeholder="Search by Title"/>
+                    
                 </div>
                
                  <button className="create-book-btn"> 
@@ -89,7 +88,7 @@ function Card(){
             </div>
            
              <div className="cards-grid">
-             {bookDetails.map( book => {
+             {bookDetails.length > 0? bookDetails.map( book => {
                 return(
                     <div className="card-container" key={book?.accessInfo?.id}>
                       <div>Title - {book?.title? book.title : 'Not Available'} </div> 
@@ -98,7 +97,7 @@ function Card(){
                       <div> Published Date - {book?.publishedDate ? book.publishedDate : "Not Avaliable"}</div>  
                      </div>
                 )
-            })}
+            }): "No Results found"}
             </div>
         </div>
     )
