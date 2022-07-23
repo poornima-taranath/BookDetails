@@ -17,7 +17,7 @@ body{
 
 .information-screen{
   margin-left: 0.5em;
-  width: 75%;
+  width: calc(100vw - 10%);
 }
 
 .atom-icon{

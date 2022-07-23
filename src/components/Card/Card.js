@@ -4,12 +4,42 @@ import './Card.css'
 import {FaPlus} from "react-icons/fa";
 import {FaSearch} from "react-icons/fa";
 
-function Card({bookDetails,handleBookDetailsSearch}){
+function Card(){
 
+    const [bookDetails,setBookDetails] = useState([])
 
-    const [initialList, setInitialList] = useState(bookDetails)
+  
+    useEffect(()=>{
+       fetchBookDetails() 
+    },[])
 
-    useEffect(()=> setInitialList(bookDetails),[bookDetails])
+    let fetchBookDetails = () => {
+       try{
+            
+            fetch('https://www.googleapis.com/books/v1/volumes?q=kaplan%20test%20prep').then((res)=> res.json())
+            .then( (res) => data(res.items) ) 
+          }
+    
+        catch(err){
+            console.log('Error------',err)
+        }
+     }
+    
+    function data(res)
+    {
+        let data =  res.map(ele =>   { return ({
+        title:ele.volumeInfo.title,
+        authors:ele.volumeInfo.authors,
+        publisher:ele.volumeInfo.publisher,
+        publishedDate:ele.volumeInfo.publishedDate,
+        id:ele.id
+      })})
+
+      setBookDetails(data)
+    
+    }
+    
+  
 
     function debounce(func, timeout = 200){
         let timer;
@@ -32,19 +62,23 @@ function Card({bookDetails,handleBookDetailsSearch}){
         handleBookDetailsSearch(res)
         }
         else{      
-            handleBookDetailsSearch(initialList)
+            fetchBookDetails()
         }
+       }
+
+       let handleBookDetailsSearch = (response) =>{
+        setBookDetails(response)
        }
     
 
-    const debouncedSearch = debounce((e)=>handleBookSearch(e))
+       const debouncedSearch = debounce((e)=>handleBookSearch(e))
    
 
     return(
         <div>
             <div className="input-row-first">
                 <div>
-                     <input className="input-box-value" type="text" onChange={handleBookSearch} placeholder="Search"/>
+                     <input className="input-box-value" type="text" onChange={debouncedSearch} placeholder="Search"/>
                      <FaSearch/>
                 </div>
                
@@ -58,10 +92,10 @@ function Card({bookDetails,handleBookDetailsSearch}){
              {bookDetails.map( book => {
                 return(
                     <div className="card-container" key={book?.accessInfo?.id}>
-                      <div>Title - {book?.title} </div> 
-                      <div>Authors - {book?.authors}</div>
-                      <div> Publisher - {book?.publisher}</div>  
-                      <div> Published Date - {book?.publishedDate}</div>  
+                      <div>Title - {book?.title? book.title : 'Not Available'} </div> 
+                      <div>Authors - {book?.authors? book.authors.map(name => name):'Not Available'}</div>
+                      <div> Publisher - {book?.publisher? book.publisher : "Not Available"}</div>  
+                      <div> Published Date - {book?.publishedDate ? book.publishedDate : "Not Avaliable"}</div>  
                      </div>
                 )
             })}
