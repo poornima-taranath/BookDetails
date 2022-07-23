@@ -6,8 +6,13 @@ function Card({bookDetails}){
 
     return(
         <div>
-            <input/>
-            {bookDetails.map( book => {
+            <div className="input-row-first">
+                <input/>
+                 <button> Create New Book</button> 
+            </div>
+           
+             <div className="cards-grid">
+                {bookDetails.map( book => {
                 return(
                     <div className="card-container">
                       <span>Title - {book?.volumeInfo?.title} </span> 
@@ -17,6 +22,7 @@ function Card({bookDetails}){
                      </div>
                 )
             })}
+            </div>
         </div>
     )
 }

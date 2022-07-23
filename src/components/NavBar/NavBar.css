@@ -1,5 +1,12 @@
 .navbar-container{
     font-size: 0.8em;
+    height: 100vh;
+    width: 40%;
+    border-right: 1px solid green;
+    top:0;
+    position: sticky;
+    padding: 1rem;
+
 }
 
 .menu-option-box{
@@ -8,4 +15,9 @@
 
 .option-name{
     align-self: center;
+}
+
+.menu-icons{
+    height: 3em;
+    width: 3em;
 }
