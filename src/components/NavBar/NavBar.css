@@ -12,6 +12,9 @@
 .menu-option-box{
     display: flex;
 }
+.menu-option-box:hover{
+    color: rgb(206, 157, 12);
+}
 
 .option-name{
     align-self: center;
@@ -20,6 +23,10 @@
 .menu-icons{
     height: 3em;
     width: 3em;
+}
+
+.down-arrow-icon:hover{
+    color: rgb(206, 157, 12)
 }
 
 .down-arrow-icon{

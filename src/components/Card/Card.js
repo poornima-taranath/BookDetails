@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import './Card.css'
 
 import {FaPlus} from "react-icons/fa";
+import {FaSearch} from "react-icons/fa";
 
-function Card({bookDetails}){
+function Card({bookDetails,handleBookDetailsSearch}){
 
 
-    const [selectedBook, setSelectedBook] = useState(null)
+    const [initialList, setInitialList] = useState(bookDetails)
+
+    useEffect(()=> setInitialList(bookDetails),[bookDetails])
 
     function debounce(func, timeout = 200){
         let timer;
@@ -16,10 +19,23 @@ function Card({bookDetails}){
         };
       }
 
-     function handleBookSearch (e){
-          console.log(e.target.value)
-          setSelectedBook(bookDetails.filter(ele => ele.volumeInfo.title.includes(e.target.value)))
-    }
+
+     let handleBookSearch = (e) =>{
+       
+        console.log(bookDetails)
+        let res;
+        console.log(e.target.value == '', e.target.key)
+        if(e.target.value !== '' ){
+        // res = (bookDetails.map(obj => obj)).filter((ele) => ele.title.toLowerCase().includes(e.target.value))
+        res = bookDetails.filter((ele) => ele.title.toLowerCase().includes(e.target.value))
+        console.log(res)
+        handleBookDetailsSearch(res)
+        }
+        else{      
+            handleBookDetailsSearch(initialList)
+        }
+       }
+    
 
     const debouncedSearch = debounce((e)=>handleBookSearch(e))
    
@@ -27,7 +43,11 @@ function Card({bookDetails}){
     return(
         <div>
             <div className="input-row-first">
-                <input className="input-box-value" type="text" onChange={(e) =>debouncedSearch(e)} placeholder="Search"/>
+                <div>
+                     <input className="input-box-value" type="text" onChange={handleBookSearch} placeholder="Search"/>
+                     <FaSearch/>
+                </div>
+               
                  <button className="create-book-btn"> 
                   <FaPlus style={{margin:'0 0.5em 0 0',}}/>
                    <div>Create New Book </div>
@@ -35,13 +55,13 @@ function Card({bookDetails}){
             </div>
            
              <div className="cards-grid">
-                {bookDetails.map( book => {
+             {bookDetails.map( book => {
                 return(
-                    <div className="card-container">
-                      <span>Title - {book?.volumeInfo?.title} </span> 
-                      <div>Authors - {book?.volumeInfo?.authors.map( author => author)}</div>
-                      <div> Publisher - {book?.volumeInfo?.publisher}</div>  
-                      <span> Published Date - {book?.volumeInfo?.publishedDate}</span>  
+                    <div className="card-container" key={book?.accessInfo?.id}>
+                      <div>Title - {book?.title} </div> 
+                      <div>Authors - {book?.authors}</div>
+                      <div> Publisher - {book?.publisher}</div>  
+                      <div> Published Date - {book?.publishedDate}</div>  
                      </div>
                 )
             })}

@@ -10,14 +10,35 @@ function App() {
 
   const [bookDetails,setBookDetails] = useState([])
 
+
 useEffect(()=>{
     try{
-        fetch('https://www.googleapis.com/books/v1/volumes?q=kaplan%20test%20prep').then((res)=> res.json() ).then( (res) => setBookDetails(res.items))
-    }
+        
+        fetch('https://www.googleapis.com/books/v1/volumes?q=kaplan%20test%20prep').then((res)=> res.json())
+        .then( (res) => data(res.items) ) 
+      }
+
     catch(err){
         console.log('Error------',err)
     }
 },[])
+
+function data(res)
+{
+    let data =  res.map(ele =>   { return ({
+    title:ele.volumeInfo.title,
+    authors:ele.volumeInfo.authors,
+    publisher:ele.volumeInfo.publisher,
+    publishedDate:ele.volumeInfo.publishedDate,
+    id:ele.id
+  })})
+  setBookDetails(data)
+
+}
+
+ let handleBookDetailsSearch = (response) =>{
+         setBookDetails(response)
+ }
 
   return (
     <div className='main-container'>
@@ -30,7 +51,7 @@ useEffect(()=>{
 
         </div>
         <div style={{fontWeight:'bold',marginLeft:'1em'}}>All Books</div>
-        <Card bookDetails={bookDetails}/>
+        <Card bookDetails={bookDetails} handleBookDetailsSearch={handleBookDetailsSearch} />
       </div>
    
     </div>
