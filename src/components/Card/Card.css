@@ -6,9 +6,8 @@
    border-radius: 10px;
    padding: 1em;
    margin: 0.5em;
-   /* border: 0.5px solid rgb(70, 68, 68); */
    border-left: 5px solid rgb(206, 157, 12);
-   box-shadow: 3px 3px rgb(195, 195, 195);
+   box-shadow: 3px 3px rgb(231 224 224);
 
 }
 
@@ -16,10 +15,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
+  margin-left: 1em;
 }
 
 .input-row-first{
    display: flex;
    justify-content: space-between;
    margin : 10px 20px;
+}
+
+.input-box-value{
+   border: none;
+   border-bottom: 1px solid grey;
+   width: 50%;
+}
+
+.input-box-value:focus{
+   border: none;
+   border-bottom: 1px solid gray;
+   width: 50%;
+}
+
+.create-book-btn{
+   padding: 1em 2em;
+   background-color: rgb(36 73 214);
+   color:white;
+   border: none;
+   border-radius: 10px;
+   display: flex;
+   text-align:center ;
 }

@@ -1,6 +1,6 @@
 import { useEffect,useState } from 'react';
 
-import atom from './assests/atom.ico'
+import atom from './assests/atomopp.ico'
 import './App.css';
 import Card from './components/Card/Card';
 import NavBar from './components/NavBar/NavBar';
@@ -23,8 +23,13 @@ useEffect(()=>{
     <div className='main-container'>
       <NavBar/>
       <div className='information-screen'>
-        <span><img src={atom} alt="logo" className='atom-icon'/> Atom</span>
-        <div>All Books</div>
+        <div className='logo-container'>
+          
+          <img src={atom} alt="logo"/>
+          <span style={{fontWeight:'bold'}}> atom</span>
+
+        </div>
+        <div style={{fontWeight:'bold',marginLeft:'1em'}}>All Books</div>
         <Card bookDetails={bookDetails}/>
       </div>
    

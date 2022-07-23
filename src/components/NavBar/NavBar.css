@@ -1,7 +1,7 @@
 .navbar-container{
     font-size: 0.8em;
     height: 100vh;
-    width: 40%;
+    width: 25%;
     border-right: 1px solid green;
     top:0;
     position: sticky;
@@ -20,4 +20,10 @@
 .menu-icons{
     height: 3em;
     width: 3em;
+}
+
+.down-arrow-icon{
+    color: grey;
+    margin-top: 1em;
+    margin-left: 0.5em;
 }

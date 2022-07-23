@@ -1,5 +1,5 @@
 import React from "react"
-
+import {FaAngleDown} from "react-icons/fa";
 import './NavBar.css'
 import menu from '../../assests/menu.ico'
 import screen from '../../assests/screen.ico'
@@ -16,6 +16,7 @@ function NavBar(){
             <div className="menu-option-box">
               <img src={screen} alt="screen"  className="menu-icons"/>
               <span className="option-name">Content Managment</span>
+              <FaAngleDown className="down-arrow-icon"/>
               
             </div>
             <div className="menu-option-box">
