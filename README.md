@@ -1,7 +1,8 @@
 ### BookDetails
 
-##Deployed at - https://book-details-page.surge.sh/
 ##code available at branch - master
+##Deployed at - https://book-details-page.surge.sh/
+
 
 Assignment answer repository 
 
@@ -22,3 +23,4 @@ Scripts to run :
 
 1. npm run start
 2. npm run build
+
