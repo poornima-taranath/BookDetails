@@ -50,6 +50,6 @@
 }
 
 .create-book-btn:hover{
-   box-shadow: 10px 10px rgb(48, 48, 182);
+   box-shadow: 10px 10px rgb(88 119 221);;
    cursor: pointer;
 }

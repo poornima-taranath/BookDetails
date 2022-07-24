@@ -56,6 +56,10 @@
     margin-top: calc(100vh - 200px);
 }
 
-.collapse-icon:hover,:focus{
+.collapse-icon:hover{
+    color: rgb(206, 157, 12)
+}
+
+.collapse-icon:active{
     color: rgb(206, 157, 12)
 }

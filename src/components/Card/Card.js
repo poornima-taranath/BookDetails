@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './Card.css'
+import debounce from "./debouncer";
 
 import {FaPlus} from "react-icons/fa";
 import {FaSearch} from "react-icons/fa";
@@ -27,7 +28,7 @@ function Card(){
     
     function data(res)
     {
-        let data =  res.map(ele =>   { return ({
+        let neededDetails =  res.map(ele =>   { return ({
         title:ele.volumeInfo.title,
         authors:ele.volumeInfo.authors,
         publisher:ele.volumeInfo.publisher,
@@ -35,25 +36,14 @@ function Card(){
         id:ele.id
       })})
 
-      setBookDetails(data)
+      setBookDetails(neededDetails)
     
     }
     
-  
-
-    function debounce(func, timeout = 200){
-        let timer;
-        return (...args) => {
-          clearTimeout(timer);
-          timer = setTimeout(() => { func.apply(this, args); }, timeout);
-        };
-      }
-
 
      let handleBookSearch = (e) =>{
        
         let res;
-        console.log(e.target.value == '', e.target.key)
         if(e.target.value !== '' ){
         // res = (bookDetails.map(obj => obj)).filter((ele) => ele.title.toLowerCase().includes(e.target.value))
         res = bookDetails.filter((ele) => ele.title.toLowerCase().includes(e.target.value))
@@ -74,7 +64,7 @@ function Card(){
    
 
     return(
-        <div>
+        <>
             <div className="input-row-first">
                 <div>
                      <input className="input-box-value" type="text" onChange={debouncedSearch} placeholder="Search by Title"/>
@@ -99,7 +89,7 @@ function Card(){
                 )
             }): "No Results found"}
             </div>
-        </div>
+        </>
     )
 }
 
