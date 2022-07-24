@@ -4,7 +4,9 @@ Assignment answer repository
 Things that happen here 
 
 1. Listing Page 
-2. Basic Navigation Bar and additonal features
+2. Search for books
+3. Toggle Nav Bar
+4. Basic Navigation Bar with styling
 
 Technologies used :
 
