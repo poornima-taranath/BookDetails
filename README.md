@@ -1,19 +1,27 @@
+## BookDetails
 
-Book Details UI 
-
-1. Render initialize listing page
-2. Collapsable nav bar 
+## Updated Code available at branch - master
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployed at - https://book-details-page.surge.sh/
 
-## Available Scripts
+Assignment submission repository 
 
-In the project directory, you can run:
+Things that happen here 
 
-### `npm start`
+1. Listing Page 
+2. Search for books
+3. Toggle Nav Bar
+4. Basic Navigation Bar with styling
 
-### `npm test`
+Technologies used :
+
+1. React
+2. Css
 
 
+Scripts to run :
+
+1. npm run start
+2. npm run build
 
