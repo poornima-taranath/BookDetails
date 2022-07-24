@@ -12,3 +12,9 @@ Technologies used :
 
 1. React
 2. Css
+
+
+Scripts to run :
+
+1. npm run start
+2. npm run build
