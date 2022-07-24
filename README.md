@@ -1,10 +1,11 @@
-### BookDetails
+## BookDetails
 
-##code available at branch - master
-##Deployed at - https://book-details-page.surge.sh/
+## Updated Code available at branch - master
 
 
-Assignment answer repository 
+## Deployed at - https://book-details-page.surge.sh/
+
+Assignment submission repository 
 
 Things that happen here 
 
